@@ -63,24 +63,48 @@ int main()
     *   git init
     *       Starts a local git repo that we can later connect to a remote repo (github)
     * 
+    *   git remote add alias URLGOESHERE
+    *       this line sets up a connection to a remote repo (github in this case) 
+    * 
+    *   git remote -v
+    *       shows all connections
+    * 
     *   git status
     *       We can see folders/files that have changes that are ready for commits
     * 
     *   git help
     *       shows available commands
     * 
+    *   git add -A
+    *       Adds all files that have been editted to a "staging" area - makes them ready to commit
+    * 
     *   git commit -m "message goes here"
     *       Sets up a commit ready to be pushed
+    * 
+    * 
+    *   To Set up Global credentials to push/pull from github
+    *   git --global user.email yourEmail@here.com
+    * 
+    *   git --global user.password yourPassWordHere
+    * 
+    *   The first time you go to push or pull from Github via Git Command Line you may get a Github pop up
+    *   that asks you to login as well, go ahead and go through that login process
+    * 
+    * 
     * 
     *
     * 
     * 
     *   
     
-    
-    
-    
     */
+    std::cout << "testing add and commit" << std::endl;
+
+
+    int x = 3;
+
+
+    // Made an in x varaible and assigned it the value of 3
 
 
 

@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "Example.cpp"
 
 
 /*
@@ -30,6 +31,16 @@ int main()
         I ask for. For loops are for when I do "know" the end point of my loop, they are typially sequential or counting loops
         used for going through collections or data sets.
     */
+
+    /*
+        Question: Difference between class fields and local variables
+
+        Answer: We'll need to create a class to make the fields to see the difference. So after break we'll
+        make a class and go through it.
+    
+    
+    */
+
 
     /*  Version Control
     *   git and github

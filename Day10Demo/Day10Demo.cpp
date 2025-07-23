@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 
 /*
@@ -58,6 +59,12 @@ int main()
     *       ~/ alias for user folder path
     *           cd ~/Documents would take you to the C://users/userName/Documents
     * 
+    *   mkdir - makes directory - creates a folder
+    *       mkdir folderName
+    *       Note that command line does not like spaces so if you want to use spaces encapsulate your folder name in quotes
+    * 
+    * 
+    * 
     * 
     *   Git Commands
     *   git init
@@ -77,9 +84,14 @@ int main()
     * 
     *   git add -A
     *       Adds all files that have been editted to a "staging" area - makes them ready to commit
+    *       Make sure we're saving files before we do the git add
     * 
     *   git commit -m "message goes here"
     *       Sets up a commit ready to be pushed
+    * 
+    * 
+    *   Order of operations
+    *   Do some Work -> Save your files -> git add -A -> git commit -m "a message goes here" -> git push github master
     * 
     * 
     *   To Set up Global credentials to push/pull from github
@@ -92,7 +104,36 @@ int main()
     * 
     * 
     * 
-    *
+    *   git pull demo
+    * 
+    *   We need a few commands first but the url we will be pulling is
+    * 
+    *   https://github.com/krohrFS/Text-Based-RPG
+    * 
+    *   It's best practice to keep one project to one folder so we'll end up making a new folder to contain this new project from Github
+    *   
+    *   Make sure you're in the repos folder
+    *       /c/Users/YOURUSERNAME/source/repos
+    * 
+    *   Make a new directory
+    *       mkdir "RPG DEMO"
+    * 
+    *   Change directory to that folder
+    *       cd "RPG DEMO"
+    * 
+    *   Make a local git repository
+    *       git init
+    * 
+    *   Create the connection from local repo to remote repo
+    *       git remote add github URLGOESHERE
+    * 
+    *   Confirm the connection was made
+    *       git remote -v
+    * 
+    *   Pull the project from github
+    *       git pull github master
+    * 
+    *   And there you have a project downloaded/pulled from githun
     * 
     * 
     *   
@@ -105,6 +146,77 @@ int main()
 
 
     // Made an in x varaible and assigned it the value of 3
+
+
+
+    // Writing to a file
+    // utilizing ofstream from fstream library
+    std::ofstream myFile; 
+
+    myFile.open("day10demotextfile.txt"); // opens the file for use by the program, the file won't open like if you were to double click a .txt or .doc file
+    // What I'm testing here is if the file has to already been made or if it will make it
+    // Some libraries will do one or the other, some do both
+
+    // We want to write something in the file
+    myFile << "This will overwrite what we currently have\n"; // we insert this text into the myFile object which will write to the text file that is currently open
+    // remember that the \n is an escape character to make a new line
+
+    myFile.close(); // closes the file
+
+
+
+
+    // Append example
+    // Start with creating a ofstream object
+    std::ofstream appFile;
+
+    // open the file you want to append like before but we'll be adding a new argument to the open method
+    appFile.open("day10demotextfile.txt", std::ios_base::app);
+    appFile << "New line to be appended\n";
+    appFile << "Third line that gets added\n";
+    appFile.close();
+
+
+
+    // Open file to read
+    std::ifstream readFile("day10demotextfile.txt");
+
+    // Reading from a file
+
+    std::string readFromFile = "";
+
+    while (std::getline(readFile, readFromFile))
+    {
+        std::cout << readFromFile << std::endl;
+    }
+
+    readFile.close();
+
+
+
+    /*
+        Use cases of this type of thing from the past is if we think games
+        We can immediately think of save states in various forms, the first that comes to mind is the original 
+        Mega Man series when you wanted to be done or take a break, if you closed out of the game or returned to the menu
+        a code would be generated that you would write down and when you go back to playing if you wanted to go back to a state
+        of game that was similar or exact to what you had you would put this code in and it would take you to where you were
+        this is because actual game saves were not a thing in the past
+
+        More recent example of what not to do
+        Major retailers have had a bad habbit of storing passwords in plain text (not encrypted) in text files that were "easily" accessible
+        on their servers, now there are reasons to store xyz types of data in a text file, but paswords are not it, 
+
+        Other current examples
+        Changing settings in games that are stored locally on your machine that are not displayed to the user in game
+        i.e Minecraft Java Edition locally hosted servers, you need to set player count, white list, black list, motd
+        things of that nature
+
+
+
+    
+    */
+
+
 
 
 

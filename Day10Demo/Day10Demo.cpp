@@ -227,6 +227,13 @@ int main()
     
     */
 
+    // Create an Example object
+
+    Example myExample;
+
+    myExample.Greeting();
+
+
 
 
 
